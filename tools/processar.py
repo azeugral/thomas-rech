@@ -83,6 +83,14 @@ def salvar(im, nome, q=82):
     im.save(p, 'WEBP', quality=q, method=6)
 
 
+def cheia(src, nome, lado=1800):
+    """Foto inteira, sem recorte, para a ampliação (lightbox)."""
+    im = ImageOps.exif_transpose(Image.open(src)).convert('RGB')
+    if max(im.size) > lado:
+        k = lado / max(im.size); im = im.resize((round(im.width * k), round(im.height * k)), Image.LANCZOS)
+    salvar(im, f'full/{nome}.webp', 84)
+
+
 def par(src, pasta, n, w, h, dy):
     """Versão grande e pequena (-p) do mesmo recorte."""
     big = recortar(src, w, h, dy); salvar(big, f'{pasta}/{n}.webp')
@@ -103,18 +111,20 @@ def main():
         f.save(os.path.join(R, 'conf-recortes.jpg'), quality=82); return
 
     for i, (c, k, _cat, _l, dy) in enumerate(OBRAS):
-        par(post(c, k), 'obras', f'{i + 1:02d}', 960, 1200, dy)
+        par(post(c, k), 'obras', f'{i + 1:02d}', 960, 1200, dy); cheia(post(c, k), f'obras-{i + 1:02d}')
     for chave, fotos in PROJETOS.items():
         for j, (c, k, dy) in enumerate(fotos):
-            par(post(c, k), 'projetos', f'{chave}-{j + 1}', 1080, 1350, dy)
+            par(post(c, k), 'projetos', f'{chave}-{j + 1}', 1080, 1350, dy); cheia(post(c, k), f'proj-{chave}-{j + 1}')
     for i, ((c, k, dy), (c2, k2, dy2)) in enumerate(zip(COB, COB_X)):
         par(post(c, k), 'cob', f'{i + 1}', 960, 1200, dy); par(post(c2, k2), 'cob', f'{i + 1}b', 960, 1200, dy2)
+        cheia(post(c, k), f'cob-{i + 1}'); cheia(post(c2, k2), f'cob-{i + 1}b')
     for i, (c, k, _t, _l, dy) in enumerate(DISP):
-        par(post(c, k), 'disp', f'{i + 1:02d}', 960, 1200, dy)
+        par(post(c, k), 'disp', f'{i + 1:02d}', 960, 1200, dy); cheia(post(c, k), f'disp-{i + 1:02d}')
     for i, (c, k, dy) in enumerate(FLASH):
         salvar(recortar(post(c, k), 640, 640, dy), f'flash/{i + 1:02d}.webp')
+        salvar(recortar(post(c, k), 1400, 1400, dy), f'full/flash-{i + 1:02d}.webp', 84)
     for i, (c, k, _l, dy) in enumerate(PINTURAS):
-        par(post(c, k), 'pinturas', f'{i + 1:02d}', 960, 1200, dy)
+        par(post(c, k), 'pinturas', f'{i + 1:02d}', 960, 1200, dy); cheia(post(c, k), f'pint-{i + 1:02d}')
     c, k, dy = SOBRE
     salvar(recortar(post(c, k), 1080, 1350, dy), 'sobre.webp')
     # Hero: a pintura inteira, em duas larguras

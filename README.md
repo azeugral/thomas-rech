@@ -10,14 +10,16 @@ Endereço da prévia: https://azeugral.github.io/thomas-rech/ (com `noindex` e `
 - **Entrada em camadas:** a pintura assenta, o nome sobe linha a linha, depois o texto, as etiquetas, os botões e a faixa da agenda. A tinta se espalha das gotas nos primeiros 3 s.
 - **Seções:** sobre, projetos grandes (6 fechamentos com miniaturas), portfólio (grade uniforme 4:5, filtro Japonesa/Tradicional, ver mais), desenhos disponíveis + flashes, pinturas, coberturas (toque alterna a foto), como funciona um fechamento, agenda aberta.
 - **Identidade:** sumi `#0e0d0c`, papel de arroz `#ece5d8`, vermelho do selo `#c8381c`. Shippori Mincho B1 + Zen Kaku Gothic New. O selo "TR" quadrado vem do carimbo que ele põe nas pinturas. Botões retos.
-- **Contato:** o botão principal leva ao link da bio (`https://w.app/thomrech`) e há DM (`https://ig.me/m/thomrech`) na agenda e no rodapé.
+- **Orçamento (`agendar.html`):** pedido em 4 etapas (projeto, corpo, ideia, você), como nos outros sites LRGZ. O texto sai montado, é copiado e a conversa abre numa aba nova (WhatsApp pelo `w.app/thomrech` ou DM `ig.me/m/thomrech`), porque nenhum dos dois links aceita texto pronto. Rascunho fica no navegador. Atalhos: `?disp=01`, `?flash=F03`, `?tipo=cobertura`. Cada desenho disponível e cada flash tem "Quero este" que já abre o pedido marcado.
+- **Celular:** blocos com 4 imagens ou mais (projetos, portfólio, disponíveis, flashes, pinturas, coberturas) viram carrossel lateral com setas, barra e contador, para não rolar demais entre seções.
+- **Ampliação:** toque em qualquer foto (lupa no canto) abre a foto inteira, sem recorte, de `assets/img/full/` (até 1800 px), com título e detalhes. Toque duplo aproxima, arrastar move, deslizar para o lado troca e para baixo fecha. No desktop, clique aproxima e as setas do teclado navegam.
 
 ## Ferramentas (`tools/`)
 
 | Arquivo | Faz |
 |---|---|
-| `processar.py` | Recorta as fotos do Instagram (`--folha` monta `_ref/conf-recortes.jpg` para conferir) |
-| `modelo.html` + `montar.py` | Monta o `index.html` (editar o modelo, nunca o index) |
+| `processar.py` | Recorta as fotos do Instagram e grava as fotos inteiras da ampliação em `assets/img/full/` (`--folha` monta `_ref/conf-recortes.jpg` para conferir) |
+| `modelo.html`, `modelo-agendar.html` + `montar.py` | Monta `index.html` e `agendar.html` (editar os modelos, nunca os .html da raiz) |
 | `gerar_video.py` | Grava os MP4 e os pôsteres do suminagashi (`--teste` só grava quadros em `_ref/hero`) |
 | `og.py` | `og.jpg` e `apple-touch-icon.png` |
 
@@ -36,7 +38,8 @@ O material bruto (324 posts, 756 fotos, `legendas.txt`, folhas de contato) fica 
 9. **Destaques:** a API dos destaques deu erro 500 e eles não foram extraídos. "Orçamentos" pode ter o passo a passo dele para trocar o "Como funciona".
 10. **Dados de perfil:** em 03/11/2026 o perfil mostrava 11,5 mil seguidores e 972 posts (o dossiê falava em 12 mil e "sem link na bio").
 11. **Domínio:** a definir. Ao trocar, ajustar `og:image` no `tools/modelo.html` e tirar o `noindex` e o `robots.txt`.
-12. **Cache:** CSS e JS usam `?v=1`. Ao mudar, subir o número no modelo.
+12. **Cache:** `site.css` e `site.js` estão em `?v=2`, `agendar.css`/`agendar.js` em `?v=1`. Ao mudar, subir o número no modelo.
+13. **Pedido de orçamento:** confirmar as opções (lugares, tamanhos, Maringá/Campo Grande) e se ele prefere receber pelo WhatsApp ou pela DM primeiro.
 
 ---
 

@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/hero-carpa.webp" media="(min-width: 701px)">
 <link rel="preload" as="image" href="assets/img/hero-carpa-p.webp" media="(max-width: 700px)">
-<link rel="stylesheet" href="assets/css/site.css?v=1">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
 </head>
 <body>
 
@@ -31,7 +31,7 @@
     <a href="#coberturas">Coberturas</a>
     <a href="#como">Como funciona</a>
     <a href="#agenda">Agenda</a>
-    <a class="btn btn-sm nav-cta" href="{{WA}}" target="_blank" rel="noopener">Orçamento</a>
+    <a class="btn btn-sm nav-cta" href="agendar.html">Orçamento</a>
   </nav>
   <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
 </header>
@@ -51,7 +51,7 @@
     <p class="hero-sub entrada" style="--d:.7s">Braços fechados, pernas e costas desenhados para o corpo de cada cliente. Dezessete anos de tatuagem e a mesma mão que pinta em papel de arroz.</p>
     <ul class="hero-tags entrada" style="--d:.82s" aria-label="Especialidades"><li>Braço fechado</li><li>Costas</li><li>Perna</li><li>Coberturas</li></ul>
     <div class="hero-btns entrada" style="--d:.94s">
-      <a class="btn" href="{{WA}}" target="_blank" rel="noopener">Pedir orçamento <i aria-hidden="true"></i></a>
+      <a class="btn" href="agendar.html">Pedir orçamento <i aria-hidden="true"></i></a>
       <a class="btn btn-linha" href="#projetos">Ver projetos</a>
     </div>
   </div>
@@ -85,9 +85,9 @@
   <div class="cab entra">
     <p class="chapeu">Fechamentos</p>
     <h2>Projetos grandes</h2>
-    <p class="lead">Trabalhos que levam meses, às vezes anos. Toque nas miniaturas para ver outros ângulos.</p>
+    <p class="lead">Trabalhos que levam meses, às vezes anos. Toque na foto para ampliar e nas miniaturas para ver outros ângulos.</p>
   </div>
-  <div class="proj-grade">
+  <div class="proj-grade carrossel" aria-label="Projetos grandes">
 {{PROJETOS}}
   </div>
 </section>
@@ -102,7 +102,7 @@
     <button class="filtro" data-f="japonesa" aria-pressed="false">Japonesa</button>
     <button class="filtro" data-f="tradicional" aria-pressed="false">Tradicional</button>
   </div>
-  <ul class="obras" id="obras">
+  <ul class="obras carrossel" id="obras" aria-label="Portfólio">
 {{OBRAS}}
   </ul>
   <div class="mais-wrap"><button class="btn btn-escuro" id="ver-mais">Ver mais trabalhos</button></div>
@@ -114,15 +114,15 @@
     <h2>Desenhos disponíveis</h2>
     <p class="lead">Projetos já desenhados, esperando alguém. Todos podem ser adaptados para outra parte do corpo.</p>
   </div>
-  <div class="dsp-grade">
+  <div class="dsp-grade carrossel" aria-label="Desenhos disponíveis">
 {{DISP}}
   </div>
   <div class="flash-cab entra">
     <h3>Flashes</h3>
-    <p>Peças menores, prontas, em cor ou em preto e cinza. Gostou de um? Manda o código na mensagem.</p>
+    <p>Peças menores, prontas, em cor ou em preto e cinza. Toque para ampliar ou em "Quero este" para pedir.</p>
   </div>
   <div class="flash-trilho-wrap">
-    <ul class="flash-trilho" id="flash">
+    <ul class="flash-trilho carrossel" id="flash" aria-label="Flashes">
 {{FLASH}}
     </ul>
   </div>
@@ -134,7 +134,7 @@
     <h2>Pinturas</h2>
     <p class="lead">Sumi sobre papel, nanquim e guache sobre papel de arroz, acrílica em kraft. Muitas viram projeto de braço, perna ou costas.</p>
   </div>
-  <ul class="pint-grade entra">
+  <ul class="pint-grade carrossel entra" aria-label="Pinturas">
 {{PINTURAS}}
   </ul>
 </section>
@@ -145,12 +145,12 @@
     <h2>Coberturas</h2>
     <p class="lead">Cobrir uma tatuagem é desenhar outra por cima pensando no que já está na pele: onde o preto entra, o que o fundo esconde e o que vira parte do desenho novo. As costas do dragão e do Barong, lá em cima, também são coberturas.</p>
   </div>
-  <div class="cob-grade">
+  <div class="cob-grade carrossel" aria-label="Coberturas">
 {{COB}}
   </div>
   <div class="cob-cta entra">
-    <p>Tem uma tatuagem que você não quer mais? Manda uma foto dela com a mensagem.</p>
-    <a class="btn" href="{{WA}}" target="_blank" rel="noopener">Mandar foto da tatuagem <i aria-hidden="true"></i></a>
+    <p>Tem uma tatuagem que você não quer mais? Monte o pedido e mande a foto dela na conversa.</p>
+    <a class="btn" href="agendar.html?tipo=cobertura">Orçar uma cobertura <i aria-hidden="true"></i></a>
   </div>
 </section>
 
@@ -179,7 +179,7 @@
   <div class="cab entra">
     <p class="chapeu">Novembro</p>
     <h2>Agenda aberta</h2>
-    <p class="lead">Orçamento e agendamento pelo WhatsApp ou pela DM do Instagram.</p>
+    <p class="lead">Monte o pedido em quatro etapas: ele sai pronto para colar no WhatsApp ou na DM.</p>
   </div>
   <div class="locais entra">
     <article class="local">
@@ -200,8 +200,9 @@
       <li>Em qual cidade você quer tatuar</li>
     </ul>
     <div class="agenda-btns">
-      <a class="btn" href="{{WA}}" target="_blank" rel="noopener">Chamar no WhatsApp <i aria-hidden="true"></i></a>
-      <a class="btn btn-escuro-linha" href="https://ig.me/m/thomrech" target="_blank" rel="noopener">Mandar DM no Instagram</a>
+      <a class="btn" href="agendar.html">Montar meu pedido <i aria-hidden="true"></i></a>
+      <a class="btn btn-escuro-linha" href="{{WA}}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn btn-escuro-linha" href="https://ig.me/m/thomrech" target="_blank" rel="noopener">Mandar DM</a>
     </div>
   </div>
 </section>
@@ -223,13 +224,14 @@
 </footer>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Imagem ampliada">
-  <button class="lb-fechar" id="lb-fechar" aria-label="Fechar"><span></span><span></span></button>
+  <div class="lb-palco" id="lb-palco"><img id="lb-img" alt="" draggable="false"></div>
+  <div class="lb-topo"><span class="lb-cont" id="lb-cont"></span><button class="lb-fechar" id="lb-fechar" aria-label="Fechar"><span></span><span></span></button></div>
   <button class="lb-nav lb-ant" id="lb-ant" aria-label="Anterior"></button>
-  <figure><img id="lb-img" alt=""><figcaption id="lb-leg"></figcaption></figure>
   <button class="lb-nav lb-prox" id="lb-prox" aria-label="Próxima"></button>
+  <div class="lb-info"><p class="lb-leg" id="lb-leg"></p><p class="lb-det" id="lb-det"></p><p class="lb-dica" id="lb-dica">Toque duas vezes na foto para aproximar</p></div>
 </div>
 
 <script src="assets/js/sumi.js?v=1"></script>
-<script src="assets/js/site.js?v=1"></script>
+<script src="assets/js/site.js?v=2"></script>
 </body>
 </html>

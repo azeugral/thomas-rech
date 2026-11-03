@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pedir orçamento · Thomás Rech</title>
+<meta name="description" content="Monte seu pedido de orçamento com o Thomás Rech em 4 etapas: projeto, lugar do corpo, ideia e você. O texto sai pronto para colar no WhatsApp ou na DM.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0e0d0c">
+<meta property="og:title" content="Pedir orçamento · Thomás Rech">
+<meta property="og:image" content="https://azeugral.github.io/thomas-rech/og.jpg?v=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="stylesheet" href="assets/css/agendar.css?v=1">
+</head>
+<body class="pg-agendar">
+
+<header class="topo rolou">
+  <a class="marca" href="index.html" aria-label="Thomás Rech, voltar ao site"><span class="selo" aria-hidden="true">TR</span><span class="marca-nome">Thomás Rech</span></a>
+  <a class="ag-voltar" href="index.html">Voltar ao site</a>
+</header>
+
+<main class="ag">
+  <div class="ag-in">
+    <header class="ag-cab">
+      <p class="chapeu">Orçamento</p>
+      <h1>Monte seu pedido</h1>
+      <p>Quatro etapas rápidas. No fim, o pedido sai copiado, pronto para colar no WhatsApp ou na DM do Thomás.</p>
+    </header>
+
+    <ol class="ag-passos" data-passos>
+      <li><button type="button" data-ir="0">Projeto</button></li>
+      <li><button type="button" data-ir="1">Corpo</button></li>
+      <li><button type="button" data-ir="2">Ideia</button></li>
+      <li><button type="button" data-ir="3">Você</button></li>
+    </ol>
+    <div class="ag-prog" aria-hidden="true"><i data-progresso></i></div>
+
+    <form class="ag-form" data-pedido novalidate>
+      <fieldset data-etapa>
+        <legend><h2>O que você quer tatuar?</h2></legend>
+        <div class="opcoes" role="radiogroup">
+          <label class="opcao"><input type="radio" name="tipo" value="Fechamento grande" data-id="fechamento"><span><b>Fechamento grande</b>Braço, perna ou costas</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="Desenho disponível" data-id="disp"><span><b>Desenho disponível</b>Projeto já desenhado</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="Flash" data-id="flash"><span><b>Flash</b>Peça menor, pronta</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="Cobertura" data-id="cobertura"><span><b>Cobertura</b>Cobrir uma tatuagem antiga</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="Continuar um projeto" data-id="continuar"><span><b>Continuar</b>Somar a um projeto que já existe</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="Peça avulsa exclusiva" data-id="avulsa"><span><b>Peça avulsa</b>Desenho exclusivo, menor</span></label>
+        </div>
+        <div class="bloco-escolha" data-bloco="disp" hidden>
+          <h3>Qual desenho?</h3>
+          <div class="mini" role="radiogroup" aria-label="Desenhos disponíveis">
+            <label><input type="radio" name="desenho" value="Costas: tigre com momiji" data-id="01"><img src="assets/img/disp/01-p.webp" alt="" width="480" height="600" loading="lazy"><span>Costas: tigre com momiji</span></label>
+            <label><input type="radio" name="desenho" value="Fênix com nuvens" data-id="02"><img src="assets/img/disp/02-p.webp" alt="" width="480" height="600" loading="lazy"><span>Fênix com nuvens</span></label>
+            <label><input type="radio" name="desenho" value="Crisântemos com onda" data-id="03"><img src="assets/img/disp/03-p.webp" alt="" width="480" height="600" loading="lazy"><span>Crisântemos com onda</span></label>
+            <label><input type="radio" name="desenho" value="Papoulas com vento" data-id="04"><img src="assets/img/disp/04-p.webp" alt="" width="480" height="600" loading="lazy"><span>Papoulas com vento</span></label>
+            <label><input type="radio" name="desenho" value="Braço inteiro" data-id="05"><img src="assets/img/disp/05-p.webp" alt="" width="480" height="600" loading="lazy"><span>Braço inteiro</span></label>
+            <label><input type="radio" name="desenho" value="Crisântemo com nuvens" data-id="06"><img src="assets/img/disp/06-p.webp" alt="" width="480" height="600" loading="lazy"><span>Crisântemo com nuvens</span></label>
+          </div>
+        </div>
+        <div class="bloco-escolha" data-bloco="flash" hidden>
+          <h3>Qual flash?</h3>
+          <div class="mini mini-q" role="radiogroup" aria-label="Flashes">
+            <label><input type="radio" name="flash" value="F01 · Tigre com crisântemo" data-id="F01"><img src="assets/img/flash/01.webp" alt="" width="640" height="640" loading="lazy"><span>F01 · Tigre com crisântemo</span></label>
+            <label><input type="radio" name="flash" value="F02 · Baiacu" data-id="F02"><img src="assets/img/flash/02.webp" alt="" width="640" height="640" loading="lazy"><span>F02 · Baiacu</span></label>
+            <label><input type="radio" name="flash" value="F03 · Rosa com arame" data-id="F03"><img src="assets/img/flash/03.webp" alt="" width="640" height="640" loading="lazy"><span>F03 · Rosa com arame</span></label>
+            <label><input type="radio" name="flash" value="F04 · Crisântemo" data-id="F04"><img src="assets/img/flash/04.webp" alt="" width="640" height="640" loading="lazy"><span>F04 · Crisântemo</span></label>
+            <label><input type="radio" name="flash" value="F05 · Sapo" data-id="F05"><img src="assets/img/flash/05.webp" alt="" width="640" height="640" loading="lazy"><span>F05 · Sapo</span></label>
+            <label><input type="radio" name="flash" value="F06 · Carpa e baiacu" data-id="F06"><img src="assets/img/flash/06.webp" alt="" width="640" height="640" loading="lazy"><span>F06 · Carpa e baiacu</span></label>
+            <label><input type="radio" name="flash" value="F07 · Camarão" data-id="F07"><img src="assets/img/flash/07.webp" alt="" width="640" height="640" loading="lazy"><span>F07 · Camarão</span></label>
+            <label><input type="radio" name="flash" value="F08 · Ferradura com flores" data-id="F08"><img src="assets/img/flash/08.webp" alt="" width="640" height="640" loading="lazy"><span>F08 · Ferradura com flores</span></label>
+            <label><input type="radio" name="flash" value="F09 · Dragão" data-id="F09"><img src="assets/img/flash/09.webp" alt="" width="640" height="640" loading="lazy"><span>F09 · Dragão</span></label>
+            <label><input type="radio" name="flash" value="F10 · Tanuki" data-id="F10"><img src="assets/img/flash/10.webp" alt="" width="640" height="640" loading="lazy"><span>F10 · Tanuki</span></label>
+            <label><input type="radio" name="flash" value="F11 · Kappa" data-id="F11"><img src="assets/img/flash/11.webp" alt="" width="640" height="640" loading="lazy"><span>F11 · Kappa</span></label>
+            <label><input type="radio" name="flash" value="F12 · Sakuras" data-id="F12"><img src="assets/img/flash/12.webp" alt="" width="640" height="640" loading="lazy"><span>F12 · Sakuras</span></label>
+            <label><input type="radio" name="flash" value="F13 · Hannya" data-id="F13"><img src="assets/img/flash/13.webp" alt="" width="640" height="640" loading="lazy"><span>F13 · Hannya</span></label>
+            <label><input type="radio" name="flash" value="F14 · Búfalo" data-id="F14"><img src="assets/img/flash/14.webp" alt="" width="640" height="640" loading="lazy"><span>F14 · Búfalo</span></label>
+          </div>
+        </div>
+        <p class="erro-msg" data-erro="0" hidden>Escolha uma opção para seguir.</p>
+      </fieldset>
+
+      <fieldset data-etapa hidden>
+        <legend><h2>Onde e de que tamanho?</h2></legend>
+        <h3>Lugar do corpo</h3>
+        <div class="chips">
+          <label><input type="radio" name="lugar" value="Braço inteiro"><span>Braço inteiro</span></label>
+          <label><input type="radio" name="lugar" value="Meio braço"><span>Meio braço</span></label>
+          <label><input type="radio" name="lugar" value="Antebraço"><span>Antebraço</span></label>
+          <label><input type="radio" name="lugar" value="Perna inteira"><span>Perna inteira</span></label>
+          <label><input type="radio" name="lugar" value="Coxa"><span>Coxa</span></label>
+          <label><input type="radio" name="lugar" value="Panturrilha"><span>Panturrilha</span></label>
+          <label><input type="radio" name="lugar" value="Costas"><span>Costas</span></label>
+          <label><input type="radio" name="lugar" value="Peito"><span>Peito</span></label>
+          <label><input type="radio" name="lugar" value="Costela"><span>Costela</span></label>
+          <label><input type="radio" name="lugar" value="Mão ou pescoço"><span>Mão ou pescoço</span></label>
+          <label><input type="radio" name="lugar" value="Outro"><span>Outro</span></label>
+        </div>
+        <h3>Tamanho</h3>
+        <div class="chips chips-tam">
+          <label><input type="radio" name="tamanho" value="Fechamento inteiro"><span><b>Fechamento</b>a parte inteira</span></label>
+          <label><input type="radio" name="tamanho" value="Meio fechamento"><span><b>Meio fechamento</b>metade da parte</span></label>
+          <label><input type="radio" name="tamanho" value="Mais de 25 cm"><span><b>Mais de 25 cm</b>peça grande</span></label>
+          <label><input type="radio" name="tamanho" value="15 a 25 cm"><span><b>15 a 25 cm</b>um palmo</span></label>
+          <label><input type="radio" name="tamanho" value="Até 15 cm"><span><b>Até 15 cm</b>uma palma</span></label>
+          <label><input type="radio" name="tamanho" value="Não sei, quero sugestão"><span><b>Não sei</b>quero sugestão</span></label>
+        </div>
+        <p class="erro-msg" data-erro="1" hidden>Marque o lugar do corpo e o tamanho.</p>
+      </fieldset>
+
+      <fieldset data-etapa hidden>
+        <legend><h2>Conta a ideia</h2></legend>
+        <label class="campo"><span data-ideia-rotulo>Como você imagina?</span>
+          <textarea id="ideia" rows="5" placeholder="Ex.: braço fechado com carpa subindo, crisântemos e fundo de onda, em cor."></textarea>
+        </label>
+        <label class="campo"><span>Link de referência <em>(opcional)</em></span>
+          <input id="ref" type="url" inputmode="url" placeholder="Pinterest, Instagram, drive…">
+        </label>
+        <h3>Já tem tatuagem nesse lugar?</h3>
+        <div class="chips">
+          <label><input type="radio" name="antiga" value="Não"><span>Não</span></label>
+          <label><input type="radio" name="antiga" value="Sim, quero cobrir"><span>Sim, quero cobrir</span></label>
+          <label><input type="radio" name="antiga" value="Sim, quero continuar"><span>Sim, quero continuar</span></label>
+        </div>
+        <h3>Onde quer tatuar?</h3>
+        <div class="chips">
+          <label><input type="radio" name="cidade" value="Maringá-PR"><span>Maringá-PR</span></label>
+          <label><input type="radio" name="cidade" value="Campo Grande-MS"><span>Campo Grande-MS</span></label>
+          <label><input type="radio" name="cidade" value="Tanto faz"><span>Tanto faz</span></label>
+        </div>
+        <h3>Para quando?</h3>
+        <div class="chips">
+          <label><input type="radio" name="quando" value="Este mês"><span>Este mês</span></label>
+          <label><input type="radio" name="quando" value="Próximo mês"><span>Próximo mês</span></label>
+          <label><input type="radio" name="quando" value="Sem pressa"><span>Sem pressa</span></label>
+        </div>
+        <p class="erro-msg" data-erro="2" hidden>Conta um pouco da ideia e marque a cidade.</p>
+      </fieldset>
+
+      <fieldset data-etapa hidden>
+        <legend><h2>Quem é você?</h2></legend>
+        <label class="campo"><span>Seu nome</span><input id="nome" autocomplete="given-name" placeholder="Como quer ser chamado"></label>
+        <label class="campo"><span>Seu Instagram <em>(opcional)</em></span><input id="insta" autocomplete="off" autocapitalize="off" placeholder="@seuperfil"></label>
+        <div class="revisao">
+          <h3>Seu pedido</h3>
+          <pre data-texto></pre>
+        </div>
+        <p class="ag-dica">Depois de colar, mande também fotos do lugar do corpo (e da tatuagem antiga, se for cobertura).</p>
+        <p class="erro-msg" data-erro="3" hidden>Coloque seu nome para seguir.</p>
+      </fieldset>
+
+      <div class="ag-acoes">
+        <button type="button" class="btn btn-linha" data-voltar hidden>Voltar</button>
+        <button type="button" class="btn" data-avancar>Continuar <i aria-hidden="true"></i></button>
+        <div class="ag-enviar" data-enviar hidden>
+          <button type="submit" class="btn" data-canal="wa">Copiar e abrir o WhatsApp</button>
+          <button type="submit" class="btn btn-linha" data-canal="dm">Copiar e abrir a DM</button>
+        </div>
+      </div>
+      <p class="ag-rodape" data-rascunho></p>
+    </form>
+
+    <section class="ag-pronto" data-pronto hidden tabindex="-1">
+      <p class="chapeu">Pronto</p>
+      <h2>Pedido copiado</h2>
+      <p data-pronto-txt>A conversa abriu em outra aba. Cole o texto e envie, junto com as fotos do lugar do corpo.</p>
+      <div class="ag-pronto-btns">
+        <a class="btn" href="https://w.app/thomrech" target="_blank" rel="noopener">Abrir o WhatsApp</a>
+        <a class="btn btn-linha" href="https://ig.me/m/thomrech" target="_blank" rel="noopener">Abrir a DM</a>
+        <button type="button" class="btn btn-linha" data-copiar>Copiar de novo</button>
+      </div>
+      <pre data-texto-final></pre>
+      <a class="ag-voltar-site" href="index.html">Voltar ao site</a>
+    </section>
+  </div>
+</main>
+
+<footer class="rodape sumi">
+  <div class="rod-base">
+    <p>© 2026 Thomás Rech</p>
+    <p class="assinatura">Site por <a href="https://lrgz.com.br" target="_blank" rel="noopener">L R G Z</a></p>
+  </div>
+</footer>
+<script src="assets/js/agendar.js?v=1" defer></script>
+</body>
+</html>
