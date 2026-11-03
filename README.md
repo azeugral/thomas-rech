@@ -11,7 +11,7 @@ Endereço da prévia: https://azeugral.github.io/thomas-rech/ (com `noindex` e `
 - **Seções:** sobre, projetos grandes (6 fechamentos com miniaturas), portfólio (grade uniforme 4:5, filtro Japonesa/Tradicional, ver mais), desenhos disponíveis + flashes, pinturas, coberturas (toque alterna a foto), como funciona um fechamento, agenda aberta.
 - **Identidade:** sumi `#0e0d0c`, papel de arroz `#ece5d8`, vermelho do selo `#c8381c`. Shippori Mincho B1 + Zen Kaku Gothic New. O selo "TR" quadrado vem do carimbo que ele põe nas pinturas. Botões retos.
 - **Orçamento (`agendar.html`):** pedido em 4 etapas (projeto, corpo, ideia, você), como nos outros sites LRGZ. O texto sai montado, é copiado e a conversa abre numa aba nova (WhatsApp pelo `w.app/thomrech` ou DM `ig.me/m/thomrech`), porque nenhum dos dois links aceita texto pronto. Rascunho fica no navegador. Atalhos: `?disp=01`, `?flash=F03`, `?tipo=cobertura`. Cada desenho disponível e cada flash tem "Quero este" que já abre o pedido marcado.
-- **Celular:** blocos com 4 imagens ou mais (projetos, portfólio, disponíveis, flashes, pinturas, coberturas) viram carrossel lateral com setas, barra e contador, para não rolar demais entre seções.
+- **Celular:** projetos, disponíveis, flashes, pinturas e coberturas mostram 4 imagens em grade 2x2 com "Ver todos" (sem carrossel, pedido do cliente); o portfólio segue em grade com "Ver mais".
 - **Ampliação:** toque em qualquer foto (lupa no canto) abre a foto inteira, sem recorte, de `assets/img/full/` (até 1800 px), com título e detalhes. Toque duplo aproxima, arrastar move, deslizar para o lado troca e para baixo fecha. No desktop, clique aproxima e as setas do teclado navegam.
 
 ## Ferramentas (`tools/`)
@@ -38,7 +38,7 @@ O material bruto (324 posts, 756 fotos, `legendas.txt`, folhas de contato) fica 
 9. **Destaques:** a API dos destaques deu erro 500 e eles não foram extraídos. "Orçamentos" pode ter o passo a passo dele para trocar o "Como funciona".
 10. **Dados de perfil:** em 03/11/2026 o perfil mostrava 11,5 mil seguidores e 972 posts (o dossiê falava em 12 mil e "sem link na bio").
 11. **Domínio:** a definir. Ao trocar, ajustar `og:image` no `tools/modelo.html` e tirar o `noindex` e o `robots.txt`.
-12. **Cache:** `site.css` e `site.js` estão em `?v=2`, `agendar.css`/`agendar.js` em `?v=1`. Ao mudar, subir o número no modelo.
+12. **Cache:** `site.css` e `site.js` estão em `?v=3`, `agendar.css`/`agendar.js` em `?v=1`. Ao mudar, subir o número no modelo.
 13. **Pedido de orçamento:** confirmar as opções (lugares, tamanhos, Maringá/Campo Grande) e se ele prefere receber pelo WhatsApp ou pela DM primeiro.
 
 ---

@@ -1,8 +1,7 @@
-/* Thomás Rech: topo, menu, hero (shader no desktop, MP4 no toque), carrosséis do celular, projetos, coberturas, portfólio e ampliação. */
+/* Thomás Rech: topo, menu, hero (shader no desktop, MP4 no toque), blocos 2x2 do celular, projetos, coberturas, portfólio e ampliação. */
 (function () {
   var doc = document, body = doc.body;
   var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var celular = window.matchMedia('(max-width: 700px)');
   var q = function (s, el) { return (el || doc).querySelector(s); };
   var qa = function (s, el) { return Array.prototype.slice.call((el || doc).querySelectorAll(s)); };
 
@@ -194,43 +193,31 @@
     });
   });
 
-  /* carrosséis do celular: blocos com 4 imagens ou mais andam para o lado, com contador e setas */
-  qa('.carrossel').forEach(function (car) {
-    var navc = doc.createElement('div'); navc.className = 'car-nav';
-    navc.innerHTML = '<button class="car-seta car-ant" aria-label="Anterior"></button><span class="car-barra"><i></i></span><span class="car-cont"></span><button class="car-seta car-prox" aria-label="Próximo"></button>';
-    (car.closest('.flash-trilho-wrap') || car).insertAdjacentElement('afterend', navc);
-    var barra = q('.car-barra i', navc), cont = q('.car-cont', navc);
-    function itens() { return Array.prototype.filter.call(car.children, function (x) { return x.offsetParent !== null; }); }
-    function atual() {
-      var its = itens(); if (!its.length) return { i: 0, n: 0, w: 1 };
-      var w = its.length > 1 ? its[1].offsetLeft - its[0].offsetLeft : 1;
-      return { i: Math.min(its.length - 1, Math.round(car.scrollLeft / w)), n: its.length, w: w };
-    }
-    function atualiza() {
-      var at = atual(), max = car.scrollWidth - car.clientWidth;
-      cont.textContent = at.n ? (max > 2 && car.scrollLeft >= max - 2 ? at.n : at.i + 1) + ' / ' + at.n : '';
-      barra.style.transform = 'scaleX(' + (max > 0 ? Math.max(.08, car.scrollLeft / max) : 1) + ')';
-    }
-    car._nav = atualiza;
-    car.addEventListener('scroll', function () { requestAnimationFrame(atualiza); }, { passive: true });
-    function vai(d) { var at = atual(); car.scrollTo({ left: Math.max(0, at.i + d) * at.w, behavior: reduz ? 'auto' : 'smooth' }); }
-    q('.car-ant', navc).addEventListener('click', function () { vai(-1); });
-    q('.car-prox', navc).addEventListener('click', function () { vai(1); });
-    window.addEventListener('resize', atualiza);
-    atualiza();
+  /* celular: blocos com mais de 4 imagens mostram 4 em grade 2x2 e um "Ver todos" */
+  qa('.mob4').forEach(function (g) {
+    var n = g.children.length; if (n <= 4) return;
+    var w = doc.createElement('div'); w.className = 'mob4-mais';
+    w.innerHTML = '<button type="button" class="btn btn-linha" aria-expanded="false">Ver todos (' + n + ')</button>';
+    (g.closest('.flash-trilho-wrap') || g).insertAdjacentElement('afterend', w);
+    var b = q('button', w);
+    b.addEventListener('click', function () {
+      var abre = !g.classList.contains('todos');
+      g.classList.toggle('todos', abre); b.setAttribute('aria-expanded', abre ? 'true' : 'false');
+      b.textContent = abre ? 'Mostrar menos' : 'Ver todos (' + n + ')';
+      if (!abre) g.scrollIntoView({ block: 'start', behavior: reduz ? 'auto' : 'smooth' });
+    });
   });
 
-  /* portfólio: filtro + ver mais (no celular vira carrossel com tudo) */
-  var obras = qa('.obra'), filtro = 'tudo', limite = 12, verMais = q('#ver-mais'), carObras = q('#obras');
+  /* portfólio: filtro + ver mais */
+  var obras = qa('.obra'), filtro = 'tudo', limite = 12, verMais = q('#ver-mais');
   function aplicar() {
-    var vis = 0, lim = celular.matches ? 1e9 : limite;
+    var vis = 0;
     obras.forEach(function (o) {
       var ok = filtro === 'tudo' || o.getAttribute('data-cat') === filtro;
       o.classList.toggle('fora', !ok);
-      if (ok) { vis++; o.classList.toggle('oculta', vis > lim); } else o.classList.remove('oculta');
+      if (ok) { vis++; o.classList.toggle('oculta', vis > limite); } else o.classList.remove('oculta');
     });
-    verMais.parentNode.hidden = vis <= lim;
-    carObras.scrollLeft = 0; if (carObras._nav) carObras._nav();
+    verMais.parentNode.hidden = vis <= limite;
   }
   qa('.filtro').forEach(function (b) {
     b.addEventListener('click', function () {
@@ -240,7 +227,6 @@
     });
   });
   verMais.addEventListener('click', function () { limite += 12; aplicar(); });
-  if (celular.addEventListener) celular.addEventListener('change', aplicar);
   aplicar();
 
   var ano = q('#ano'); if (ano) ano.textContent = new Date().getFullYear();
